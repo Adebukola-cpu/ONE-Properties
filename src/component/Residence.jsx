@@ -5,7 +5,7 @@ const residences = [
     slug: "penthouse",
     description:
       "An exceptional private residence with expansive views and elevated living.",
-    video: "/videos/penthouse.mp4",
+    video: "https://res.cloudinary.com/dgovewawt/video/upload/v1790457034/penthouse_ewxflq.mp4",
     size: "216 m²",
   },
 
@@ -15,7 +15,7 @@ const residences = [
     slug: "two-bedroom",
     description:
       "Generous proportions and elegant living spaces designed for modern comfort.",
-    video: "/videos/two-bedroom.mp4",
+    video: "https://res.cloudinary.com/dgovewawt/video/upload/v1790457133/two-bedroom_xjkqc5.mp4",
     size: "124 m²",
   },
 

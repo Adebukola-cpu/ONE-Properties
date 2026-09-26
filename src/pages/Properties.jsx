@@ -10,7 +10,7 @@ const residences = {
     bedrooms: "4 Bedrooms",
     bathrooms: "4 Bathrooms",
     type: "Penthouse",
-    video: "/videos/penthouse.mp4",
+    video: "https://res.cloudinary.com/dgovewawt/video/upload/v1790457034/penthouse_ewxflq.mp4",
   },
 
   "two-bedroom": {
@@ -22,6 +22,7 @@ const residences = {
     bathrooms: "2 Bathrooms",
     type: "Apartment",
     image: "/images/properties2.jpg",
+    video: "https://res.cloudinary.com/dgovewawt/video/upload/v1790457133/two-bedroom_xjkqc5.mp4",
   },
 
   "three-bedroom": {
