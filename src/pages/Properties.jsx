@@ -103,7 +103,7 @@ function Properties() {
         <div className="property-hero-overlay"></div>
 
         <div className="property-hero-content">
-          <p>ELYSE RESIDENCE</p>
+          <p>ONE Properties</p>
           <h1>{residence.title}</h1>
         </div>
       </section>
