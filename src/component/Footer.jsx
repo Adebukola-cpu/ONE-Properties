@@ -99,12 +99,16 @@ function Footer() {
 
             <p>CONNECT</p>
 
-            <button onClick={() => navigate("/enquire")}>
-              Enquire
+            <button onClick={() => navigate("enquire")}>
+              <a href="/enquire">
+                Enquire
+             </a>
             </button>
 
             <button onClick={() => goToSection("contact")}>
-              Contact
+              <a href="/enquire">
+                contact
+             </a>
             </button>
 
             <a href="#contact">

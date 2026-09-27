@@ -25,6 +25,8 @@ body {
   background: var(--cream);
   color: var(--black);
   font-weight: 300;
+  width: 100%;
+  max-width: 100%;
 }
 
 img {
@@ -63,10 +65,10 @@ button {
   color: black;
 
   transition:
-      background-color 0.4s ease,
-      backdrop-filter 0.4s ease,
-      padding 0.4s ease,
-      box-shadow 0.4s ease;
+    background-color 0.4s ease,
+    backdrop-filter 0.4s ease,
+    padding 0.4s ease,
+    box-shadow 0.4s ease;
 }
 
 .navbar-scrolled {
@@ -119,7 +121,7 @@ button {
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: 1.5px;
-  color:gold
+  color: gold
 }
 
 .menu-button {
@@ -433,13 +435,15 @@ button {
   display: grid;
   grid-template-columns: 1fr 2fr;
 }
-.section-label span{
- font-size: 25px ;
+
+.section-label span {
+  font-size: 25px;
 }
 
-.intro-content p{
+.intro-content p {
   font-size: 20px;
 }
+
 .intro-content h2 {
   font-family: "Playfair Display", serif;
 
@@ -701,6 +705,7 @@ h2 em {
   min-height: 850px;
   background: #fbfbfb;
   color: var(--black);
+  overflow: hidden;
 }
 
 /* Image */
@@ -1400,37 +1405,6 @@ h2 em {
   padding-bottom: 8px;
 }
 
-/* Mobile */
-
-@media (max-width: 768px) {
-  .enquire-hero {
-    min-height: 65vh;
-    padding: 130px 6vw 70px;
-  }
-
-  .enquire-section {
-    grid-template-columns: 1fr;
-    gap: 80px;
-    padding: 90px 6vw;
-  }
-
-  .form-row {
-    grid-template-columns: 1fr;
-    gap: 0;
-  }
-
-  .enquire-contact {
-    max-width: 100%;
-  }
-
-  .enquire-details {
-    margin-top: 50px;
-  }
-
-  .enquire-back {
-    padding: 0 6vw 80px;
-  }
-}
 
 /* =========================
    FOOTER NAVIGATION
@@ -1558,11 +1532,9 @@ h2 em {
 .property-hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.65),
-    rgba(0, 0, 0, 0.05)
-  );
+  background: linear-gradient(to top,
+      rgba(0, 0, 0, 0.65),
+      rgba(0, 0, 0, 0.05));
 }
 
 .property-hero-content {
@@ -1616,7 +1588,7 @@ h2 em {
   max-width: 500px;
 }
 
-.property-description > p {
+.property-description>p {
   color: #666;
   font-size: 15px;
   line-height: 1.9;
@@ -1688,7 +1660,388 @@ h2 em {
   padding-bottom: 8px;
 }
 
-@media (max-width: 768px) {
+/* =====================================================
+   MOBILE STYLES
+   ALL MOBILE STYLES MUST STAY BELOW DESKTOP STYLES
+===================================================== */
+
+@media (max-width: 800px) {
+
+  /* =========================
+     NAVBAR
+  ========================= */
+
+  html,
+    body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+  .navbar {
+    padding: 25px 6vw;
+    width: 100%;
+    max-width: 100vw;
+  }
+
+  .nav-contact {
+    display: none;
+  }
+
+  .menu-button {
+    display: block;
+    position: relative;
+    z-index: 1101;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 5px;
+  }
+
+  .menu-button span {
+    width: 28px;
+    height: 1px;
+    display: block;
+    background: white;
+    margin: 6px 0;
+    transition: transform 0.3s ease;
+  }
+
+  /* Hamburger becomes X */
+
+  .menu-button.menu-open span:first-child {
+    transform: translateY(3.5px) rotate(45deg);
+  }
+
+  .menu-button.menu-open span:last-child {
+    transform: translateY(-3.5px) rotate(-45deg);
+  }
+
+
+  /* =========================
+     MOBILE NAVIGATION
+  ========================= */
+
+  .nav-links {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    max-width: 100vw;
+    height: 100vh;
+    height: 100dvh;
+
+    background: var(--black);
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    gap: 35px;
+
+    transform: translateY(-100%);
+    transition: transform 0.4s ease;
+
+    z-index: 1000;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    box-sizing: border-box;
+
+    /* IMPORTANT:
+       Your navbar is black on desktop,
+       so we must make the mobile links white.
+    */
+    color: white;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+  }
+
+  .nav-links a {
+    color: white;
+    font-size: 16px;
+  }
+
+
+  /* =========================
+     MOBILE PROPERTIES DROPDOWN
+  ========================= */
+
+  .nav-dropdown {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-dropdown-button {
+    margin: 0 auto;
+    justify-content: center;
+    color: white;
+  }
+
+  .dropdown-arrow {
+    color: white;
+  }
+
+  .nav-dropdown-menu {
+    position: static;
+
+    transform: none;
+
+    width: 100%;
+    min-width: 0;
+
+    margin-top: 15px;
+
+    background: transparent;
+
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+
+    max-height: 0;
+    overflow: hidden;
+
+    padding: 0;
+
+    transition:
+      opacity 0.3s ease,
+      max-height 0.3s ease,
+      visibility 0.3s ease;
+  }
+
+  .nav-dropdown-menu.dropdown-open {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+
+    max-height: 350px;
+  }
+
+  .nav-dropdown-menu a {
+    display: block;
+
+    padding: 10px;
+
+    color: white;
+
+    font-size: 11px;
+    letter-spacing: 1px;
+  }
+
+  .nav-dropdown-menu a:hover {
+    padding-left: 10px;
+    background: transparent;
+  }
+
+
+  /* =========================
+     HERO
+  ========================= */
+
+  .hero-content {
+    padding: 130px 6vw 40px;
+  }
+
+  .hero h1 {
+    font-size: 70px;
+    letter-spacing: -3px;
+  }
+
+  .hero-bottom p {
+    font-size: 11px;
+  }
+
+  .circle-arrow {
+    width: 50px;
+    height: 50px;
+  }
+
+
+  /* =========================
+     GENERAL SECTIONS
+  ========================= */
+
+  .section {
+    padding: 100px 6vw;
+  }
+
+  .section-label {
+    margin-bottom: 60px;
+  }
+
+
+  /* =========================
+     INTRO
+  ========================= */
+
+  .intro {
+    display: block;
+    min-height: auto;
+  }
+
+  .intro-content h2 {
+    font-size: 55px;
+  }
+
+  .intro-text {
+    margin-left: 0;
+  }
+
+
+  /* =========================
+     RESIDENCES
+  ========================= */
+
+  .residences-heading {
+    display: block;
+  }
+
+  .residences-heading h2 {
+    margin-top: 35px;
+  }
+
+  .residence-card,
+  .residence-card:nth-child(even) {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+
+  .residence-card:nth-child(even) .residence-image-wrapper {
+    order: 0;
+  }
+
+  .residence-image-wrapper {
+    height: 480px;
+  }
+
+  .residence-info h3 {
+    font-size: 38px;
+  }
+
+
+  /* =========================
+     EXPERIENCE
+  ========================= */
+
+  .experience {
+    grid-template-columns: 1fr;
+  }
+
+  .experience-image {
+    min-height: 500px;
+    height: 500px;
+  }
+
+  .experience-content {
+    padding: 90px 6vw;
+  }
+
+  .experience-content .section-label {
+    margin-bottom: 55px;
+  }
+
+
+  /* =========================
+     GALLERY
+  ========================= */
+
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .gallery-large {
+    height: 500px;
+  }
+
+  .gallery-small img {
+    height: 400px;
+  }
+
+
+  /* =========================
+     LOCATION
+  ========================= */
+
+  .location {
+    grid-template-columns: 1fr;
+  }
+
+  .location-image {
+    min-height: 500px;
+  }
+
+  .location-content {
+    padding: 90px 6vw;
+  }
+
+
+  /* =========================
+     FOOTER
+  ========================= */
+
+  .footer {
+    padding: 100px 6vw 25px;
+  }
+
+  .footer-top {
+    grid-template-columns: 1fr;
+    gap: 60px;
+    min-height: auto;
+  }
+
+  .footer-navigation {
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+
+
+  /* =========================
+     ENQUIRE PAGE
+  ========================= */
+
+  .enquire-hero {
+    min-height: 65vh;
+    padding: 130px 6vw 70px;
+  }
+
+  .enquire-section {
+    grid-template-columns: 1fr;
+    gap: 80px;
+    padding: 90px 6vw;
+  }
+
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .enquire-contact {
+    max-width: 100%;
+  }
+
+  .enquire-details {
+    margin-top: 50px;
+  }
+
+  .enquire-back {
+    padding: 0 6vw 80px;
+  }
+
+
+  /* =========================
+     PROPERTY DETAILS PAGE
+  ========================= */
+
   .property-hero {
     height: 65vh;
     min-height: 500px;
@@ -1708,246 +2061,5 @@ h2 em {
   .property-features {
     grid-template-columns: 1fr;
   }
+
 }
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 800px) {
-  .navbar {
-    padding: 25px 6vw;
-  }
-
-  .nav-contact {
-    display: none;
-  }
-
-  .menu-button {
-    display: block;
-  }
-
-  .nav-links {
-    position: absolute;
-
-    top: 0;
-    left: 0;
-
-    width: 100%;
-    height: 100vh;
-
-    background: var(--black);
-
-    flex-direction: column;
-
-    justify-content: center;
-
-    align-items: center;
-
-    gap: 35px;
-
-    transform: translateY(-100%);
-
-    transition: transform 0.4s ease;
-  }
-
-  .nav-links.open {
-    transform: translateY(0);
-  }
-
-  .nav-links a {
-    font-size: 16px;
-  }
-
-    @media (max-width: 768px) {
-      .nav-dropdown {
-        width: 100%;
-        text-align: center;
-      }
-  
-      .nav-dropdown-button {
-        margin: 0 auto;
-        justify-content: center;
-      }
-  
-      .nav-dropdown-menu {
-        position: static;
-        transform: none;
-        width: 100%;
-        min-width: 0;
-  
-        margin-top: 15px;
-  
-        background: transparent;
-  
-        opacity: 0;
-        visibility: hidden;
-        pointer-events: none;
-  
-        max-height: 0;
-        overflow: hidden;
-  
-        padding: 0;
-  
-        transition:
-          opacity 0.3s ease,
-          max-height 0.3s ease,
-          visibility 0.3s ease;
-      }
-  
-      .nav-dropdown:hover .nav-dropdown-menu {
-        transform: none;
-      }
-  
-      .nav-dropdown-menu.dropdown-open {
-        opacity: 1;
-        visibility: visible;
-        pointer-events: auto;
-  
-        max-height: 300px;
-      }
-  
-      .nav-dropdown-menu a {
-        padding: 10px;
-        font-size: 10px;
-      }
-  
-      .nav-dropdown-menu a:hover {
-        padding-left: 10px;
-      }
-    }
-
-  .hero-content {
-    padding: 130px 6vw 40px;
-  }
-
-  .hero h1 {
-    font-size: 70px;
-
-    letter-spacing: -3px;
-  }
-
-  .hero-bottom p {
-    font-size: 11px;
-  }
-
-  .circle-arrow {
-    width: 50px;
-    height: 50px;
-  }
-
-  .section {
-    padding: 100px 6vw;
-  }
-
-  .section-label {
-    margin-bottom: 60px;
-  }
-
-  .intro {
-    display: block;
-
-    min-height: auto;
-  }
-
-  .intro-content h2 {
-    font-size: 55px;
-  }
-
-  .intro-text {
-    margin-left: 0;
-  }
-
-  .residences-heading {
-    display: block;
-  }
-
-  .residences-heading h2 {
-    margin-top: 35px;
-  }
-
-  .residence-card,
-  .residence-card:nth-child(even) {
-    grid-template-columns: 1fr;
-
-    gap: 35px;
-  }
-
-  .residence-card:nth-child(even) .residence-image-wrapper {
-    order: 0;
-  }
-
-  .residence-image-wrapper {
-    height: 480px;
-  }
-
-  .residence-info h3 {
-    font-size: 38px;
-  }
-
-  .experience-grid {
-    grid-template-columns: 1fr;
-
-    gap: 60px;
-  }
-
-  .experience-image {
-    height: 500px;
-  }
-
-  .gallery-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .gallery-large {
-    height: 500px;
-  }
-
-  .gallery-small img {
-    height: 400px;
-  }
-
-  .location {
-    grid-template-columns: 1fr;
-  }
-
-  .location-image {
-    min-height: 500px;
-  }
-
-  .location-content {
-    padding: 90px 6vw;
-  }
-
-  .footer {
-    padding: 100px 6vw 25px;
-  }
-
-  .footer-top {
-    min-height: 400px;
-  }
-
-  .footer-bottom {
-    flex-direction: column;
-
-    gap: 20px;
-  }
-}
-@media (max-width: 768px) {
-  .experience {
-    grid-template-columns: 1fr;
-  }
-
-  .experience-image {
-    min-height: 500px;
-  }
-
-  .experience-content {
-    padding: 90px 6vw;
-  }
-
-  .experience-content .section-label {
-    margin-bottom: 55px;
-  }
-}
-

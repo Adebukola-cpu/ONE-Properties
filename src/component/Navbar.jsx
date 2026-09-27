@@ -136,14 +136,14 @@ function Navbar() {
         Enquire
         </a>
 
-      <button
-        className="menu-button"
-        onClick={() => setMenuOpen(!menuOpen)}
+        <button 
+        className={`menu-button ${menuOpen ? "menu-open" : ""}`}
+        onClick={() => setMenuOpen((prev) => !prev)}
         aria-label="Toggle menu"
-      >
+        >
         <span></span>
         <span></span>
-      </button>
+        </button>
     </header>
   );
 }
