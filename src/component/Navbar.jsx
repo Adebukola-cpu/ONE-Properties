@@ -59,19 +59,11 @@ function Navbar() {
         onMouseEnter={() => setPropertyOpen(true)}
         onMouseLeave={() => setPropertyOpen(false)}
         >
+            
         <button
         className="nav-dropdown-button"
         onClick={() => {
-            setPropertyOpen(false);
-            setMenuOpen(false);
-
-            navigate("/");
-    
-            setTimeout(() => {
-            document.getElementById("residences")?.scrollIntoView({
-                behavior: "smooth",
-            });
-            }, 50);
+            setPropertyOpen((prev) => !prev);
         }}
         >
         PROPERTIES
@@ -80,46 +72,57 @@ function Navbar() {
         </span>
         </button>
 
-          <div
-            className={`nav-dropdown-menu ${
-              propertyOpen ? "dropdown-open" : ""
-            }`}
-          >
-            <a
-              href="/residences/penthouse"
-              onClick={closeMenus}
-            >
-              The Penthouse
-            </a>
 
-            <a
-              href="/residences/two-bedroom"
-              onClick={closeMenus}
-            >
-              The Two Bedroom
-            </a>
+         <div
+        className={`nav-dropdown-menu ${
+            propertyOpen ? "dropdown-open" : ""
+        }`}
+        >
+        <button
+            onClick={() => {
+            navigate("/residences/penthouse");
+            closeMenus();
+            }}
+        >
+            The Penthouse
+        </button>
 
-            <a
-              href="/residences/three-bedroom"
-              onClick={closeMenus}
-            >
-              The Three Bedroom
-            </a>
+        <button
+            onClick={() => {
+            navigate("/residences/two-bedroom");
+            closeMenus();
+            }}
+        >
+            The Two Bedroom
+        </button>
 
-            <a
-              href="/residences/bungalow"
-              onClick={closeMenus}
-            >
-              Bungalow
-            </a>
+        <button
+            onClick={() => {
+            navigate("/residences/three-bedroom");
+            closeMenus();
+            }}
+        >
+            The Three Bedroom
+        </button>
 
-            <a
-              href="/residences/duplex"
-              onClick={closeMenus}
-            >
-              Duplex
-            </a>
-          </div>
+        <button
+            onClick={() => {
+            navigate("/residences/bungalow");
+            closeMenus();
+            }}
+        >
+            Bungalow
+        </button>
+
+        <button
+            onClick={() => {
+            navigate("/residences/duplex");
+            closeMenus();
+            }}
+        >
+            Duplex
+        </button>
+        </div>
         </div>
 
         <a href="#experience" onClick={closeMenus}>
